@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoverMymeds Copayment Predictor</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark">
+    <div class = "wrapper" >
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand" href="index.html">CoverMyMeds Copayment Predictor</a>
+        </nav>
+    </div>
+      <div class="jumbotron">
+        <h1 class="display-4"></h1>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <h3>Prediction of patient copayment ahead of time by machine learning. 
+              <br>
+              <small> How acurate can it be?</small></h3>
+          </div>
+          <div class="col-md-9">
+            <p>
+              Using a set of (SIMULATED) pharmacy data-billing claims that were run from a pharmacy to a third-party payer (insurance plan) who covers some portion of the prescription drug price on behalf of a patient. As part of the claim process the amount that the payer reimburses the pharmacy and copayments required of the patient are set by complicated negotiations and contracts between the drug manufacturer, the payer, and the pharmacy. Those negotiations also often cover decisions on what drug claims will ultimately be approved (preferred / non-preferred / non-covered formulary status of each drug) based on the relative discounts that the payer can secure relative to other drugs in the same class that may treat the similar types of medical conditions. Therefore, using this claim billing data into machine learning algorithms to build a method of predicting the copayments required of patients ahead of time will be useful for doctors to presribe drugs based on patient affordability.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+            <div class ="col-md-2">
+                <form class="bg-dark">
+                    <p>Feaures in the model</p>
+                    <ul class="list-group">
+                      <li class="list-group-item bg-dark">
+                        <label for="bin">Enter Bin Encoded</label>
+                        <br>
+                        <input type="number" placeholder="664344" id="bin" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="pcn">Enter Pcn Encoded</label>
+                        <br>
+                        <input type="text" placeholder="KBOSN" id="pcn" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="group">Enter Group Encoded</label>
+                        <br>
+                        <input type="text" placeholder="DGLGRYP" id="group" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="drug">Enter Drug Encoded</label>
+                        <br>
+                        <input type="text" placeholder="branded colifunene" id="drug" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="drug">Enter Month</label>
+                        <br>
+                        <input type="text" placeholder="1" id="month" />
+                      </li>
+                        <br>
+                    <p>Model Result</p>
+                    <ul class="list-group">
+                      <li class="list-group-item bg-dark">
+                        <label for="drug">Predicted price</label>
+                        <br>
+                        <input type="text" placeholder="  " id="predicted price" />
+                      </li>
+                    </ul>
+                   </form>
+            </div>
+      <div class="container">
+        <div class="row">
+            <div class ="col-md-3">
+                <form class="bg-dark">
+                    <p>Filter Search in the dataset</p>
+                    <ul class="list-group">
+                      <li class="list-group-item bg-dark">
+                        <label for="pharmacy">Enter Pharmacy </label>
+                        <br>
+                        <input type="text" placeholder="Pharmacy #47" id="pharmacy" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="diagnosis">Enter Diagnosis</label>
+                        <br>
+                        <input type="text" placeholder="H60.83" id="diagnosis" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="drug">Enter Drug</label>
+                        <br>
+                        <input type="text" placeholder="branded colifunene" id="drug" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="bin">Enter Bin</label>
+                        <br>
+                        <input type="number" placeholder="664344" id="bin" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="pcn">Enter Pcn</label>
+                        <br>
+                        <input type="text" placeholder="KBOSN" id="pcn" />
+                      </li>
+                      <li class="list-group-item bg-dark">
+                        <label for="group">Enter Group</label>
+                        <br>
+                        <input type="text" placeholder="DGLGRYP" id="group" />
+                      </li>
+                    </ul>
+                   </form>
+
+            </div>
+            <div class="col-md-9">
+              <table class="table table-striped">
+                <thead>
+                   <tr>
+                     <th>Date</th>
+                     <th>Month</th>
+                     <th>Pharmacy</th>
+                     <th>Diagnosis</th>
+                     <th>Drug</th>
+                     <th>Bin</th>
+                     <th>Pcn</th>
+                     <th>Group</th>
+                     <th>Rejected</th>
+                     <th>Patient_pay</th>
+                   </tr>
+                </thead>
+               <tbody></tbody>
+              </table>
+            </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+      <script src="data.js"></script>
+      <script src="app.js"></script>
+    
+</body>
+</html>
